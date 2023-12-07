@@ -119,17 +119,22 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({})
 class ComponentsIndexTopIntroduce extends Vue {
   /* data */
-  private profilePhoto: string = '/index/top_image.jpg'
-  private centerCols: number = this.$vuetify.breakpoint.mdAndUp ? 4 : 8
+  profilePhoto: string = '/index/top_image.jpg'
+  centerCols: number = this.$vuetify.breakpoint.mdAndUp ? 4 : 8
 
-  private aspectRatioOfImg: number = 67 / 100
-  private heightOfCols: number = this.$vuetify.breakpoint.mdAndUp
+  aspectRatioOfImg: number = 67 / 100
+  heightOfCols: number = this.$vuetify.breakpoint.mdAndUp
     ? (this.$vuetify.breakpoint.width / 3 / 5) * 5
     : this.$vuetify.breakpoint.smOnly
     ? (this.$vuetify.breakpoint.width / 3 / 5) * 9.5 // ((window width / cols) * photo ratio
     : (this.$vuetify.breakpoint.width / 3 / 5) * 18
 
-  private leftInfosOption: {} = {
+  leftInfosOption: {
+    class: {
+      title: string,
+      content: string,
+    }
+  } = {
     class: {
       title: 'text-sm-body-2 text-overline grey--text mb-0',
       content:
@@ -137,40 +142,46 @@ class ComponentsIndexTopIntroduce extends Vue {
     },
   }
 
-  private rightInfosOption: {} = {
+  rightInfosOption: {
+    class: {
+      title: string,
+      content: string,
+    }
+  } = {
     class: {
       title: 'text-sm-body-2 text-overline grey--text mb-0',
       content: 'text-sm-h5 text-md-h4 text-h6 font-weight-medium',
     },
   }
 
-  private leftItems: Array<{ title: string; content: string }> = [
+  leftItems: Array<{ title: string; content: string }> = [
     {
       title: '경력',
       content:
-        '쉬운지식 CEO & Developer' +
+        '(주)게타 CEO & Developer' +
         '<br />IT, 블록체인 기초 개념 저서 2권' +
         '<br />(전) 유안타증권 Retail전략팀 & PB',
     },
     {
       title: '주요 역량',
       content:
-        '경제&#183;금융&#183;IT 분야 강의 & 발표' +
-        '<br />영업 전략 기획 및 데이터 분석' +
+        'GPT 기능 개발 (Prompt Engineering)' +
         '<br />웹서비스 개발 (Cloud Native)' +
+        '<br />경제&#183;금융&#183;IT 분야 강의 & 발표' +
+        '<br />영업 전략 기획 및 데이터 분석' +
         '<br />Python, JavaScript, SQL',
     },
     { title: 'contact', content: 'msp770@gmail.com' },
   ]
 
-  private rightItems: Array<{ title: string; content: string }> = [
-    { title: '총 경력(년)', content: '6' },
+  rightItems: Array<{ title: string; content: string }> = [
+    { title: '총 경력(년)', content: '7' },
     { title: '시청된 강의 시간', content: '176,000' },
     { title: '경제/금융/IT 영상 수', content: '492' },
     { title: 'Github Contribution (2022)', content: '1,917' },
   ]
 
-  private linkBtns: Array<{ url: string; color: string; icon: string }> = [
+  linkBtns: Array<{ url: string; color: string; icon: string }> = [
     {
       url: 'https://www.youtube.com/c/TMook',
       color: 'black',
@@ -184,7 +195,7 @@ class ComponentsIndexTopIntroduce extends Vue {
   ]
 
   /* computed */
-  private get otherColsThanCenter(): number {
+  get otherColsThanCenter(): number {
     if (this.$vuetify.breakpoint.mdAndUp) {
       const result: number = (12 - this.centerCols) / 2
       return result
@@ -196,7 +207,7 @@ class ComponentsIndexTopIntroduce extends Vue {
   }
 
   /* methods */
-  private reordering(idx: number): number {
+  reordering(idx: number): number {
     if (this.$vuetify.breakpoint.smOnly) {
       const reidx: number = idx === 0 ? 3 : idx === 1 ? 1 : 4
       return reidx

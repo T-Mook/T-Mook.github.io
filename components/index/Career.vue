@@ -76,11 +76,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({})
 class ComponentsIndexCareer extends Vue {
-  private title: string = '전체 이력'
-  private desc: string =
-    '다양한 활동 중에서도 다른 많은 분들과<br>함께 할 수 있었던 모든 기록입니다'
-
-  private items: Array<{
+  items: Array<{
     src: null | string
     title: string
     time: string
@@ -96,21 +92,171 @@ class ComponentsIndexCareer extends Vue {
     }
   }> = [
     {
-      title: '「마이데이터 비즈니스 전략」 강의',
-      time: '2023',
-      content: '마이데이터 시대 비즈니스 전략 강의 촬영, 현대C&R 주관',
+      title: '「만화로 보는 IT」 강의',
+      time: '2024',
+      content: '인공지능, 프롬프트 엔지니어링, 클라우드, 양자컴퓨터 개념 강의, 현대C&R 주관',
       color: 'dark grey',
-      src: "/career/MyData_TMook_temp_202205.jpg",
+      src: '',
       left: true,
       hideDot: false,
       btn: {
         bool: true,
         href: '',
-        text: '(출시 예정)',
+        text: '(예정)',
         color: 'grey lighten-1',
       },
     },
-	{
+    {
+      title: "「But my 보상 겪었으면, I am 재도전이에요」, 전기신문",
+      time: '2023.11',
+      content: '전기신문 오피니언 <금요아침> 14회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=328141',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「당신이 GPT에 지루한 사이에」, 전기신문",
+      time: '2023.7',
+      content: '전기신문 오피니언 <금요아침> 13회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=325877',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: '「마이데이터 비즈니스 전략」 강의',
+      time: '2023.7',
+      content: '마이데이터 시대 비즈니스 전략 강의 촬영, 현대C&R 주관',
+      color: 'dark grey',
+      src: '/career/MyData_TMook_temp_202205.jpg',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: 'https://www.youtube.com/watch?v=nRxjdIwdaqo',
+        text: '맛보기 >',
+        color: 'grey lighten-1',
+      },
+    },
+    {
+      title: "「왜 개발자는 재택근무를 할 수 있는가?」, 전기신문",
+      time: '2023.7',
+      content: '전기신문 오피니언 <금요아침> 12회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=323573',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「경력있는 신입? 팀장급 신입을 원한다」, 전기신문",
+      time: '2023.6',
+      content: '전기신문 오피니언 <금요아침> 11회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=321382',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「아니 땐 굴뚝에 연기를 그리는 인공지능」, 전기신문",
+      time: '2023.4',
+      content: '전기신문 오피니언 <금요아침> 10회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=315134',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「ChatGPT는 아는 문제」, 전기신문",
+      time: '2023.2',
+      content: '전기신문 오피니언 <금요아침> 9회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=315134',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: '(주)게타 설립 및 투자유치',
+      time: '2022.12',
+      content: '가치평가 약 40억 원, 대표 역',
+      color: 'grey darken-4',
+      src: 'https://easyxplain-service-images.s3.ap-northeast-2.amazonaws.com/og_20220126.png',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: 'https://knowease-inc.github.io/',
+        text: '보기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「한국은 투명한가?」, 전기신문",
+      time: '2022.12',
+      content: '전기신문 오피니언 <금요아침> 8회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=312141',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
+      title: "「온라인에는 '바퀴벌레 모텔'이 득시글하다」, 전기신문",
+      time: '2022.9',
+      content: '전기신문 오피니언 <금요아침> 7회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=308920',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
       title: "「'편하게 가입하는 금융상품 안전한가' 경각심 가질 것」, 전기신문",
       time: '2022.7',
       content: '전기신문 오피니언 <금요아침> 6회',
@@ -125,8 +271,8 @@ class ComponentsIndexCareer extends Vue {
         color: 'grey',
       },
     },
-	{
-      title: "「직원을 추앙하기 위한 기술적 사랑」, 전기신문",
+    {
+      title: '「직원을 추앙하기 위한 기술적 사랑」, 전기신문',
       time: '2022.6',
       content: '전기신문 오피니언 <금요아침> 5회',
       color: 'dark grey',
@@ -484,7 +630,7 @@ class ComponentsIndexCareer extends Vue {
   ]
 
   /* computed */
-  private get imageSizeOfsmAndDown(): number | undefined {
+  get imageSizeOfsmAndDown(): number | undefined {
     const width: number | undefined = this.$vuetify.breakpoint.smOnly
       ? this.$vuetify.breakpoint.width / 2 - 40
       : this.$vuetify.breakpoint.xsOnly
