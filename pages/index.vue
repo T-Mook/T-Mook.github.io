@@ -100,9 +100,10 @@ import Career from '@/components/index/Career.vue'
 class PagesIndex extends Vue {
   /* data */
   private titleOfTop: string =
-    'Park Sung-mouk' + '<br />Presenter <small>&</small> Strategist'
+    'Park Sung-mouk' + '<br />Web Developer <small>&</small> Strategist'
 
-  private subTitleOfTop: string = '경제&#183;금융&#183;IT 트렌드 쉬운 설명'
+  private subTitleOfTop: string =
+    'IT&#183;경제&#183;금융 트렌드 설명하는 개발자'
 
   private classOfComponent: string = 'my-md-10'
 
@@ -122,7 +123,7 @@ class PagesIndex extends Vue {
     },
     memory: {
       title: 'Memories',
-      content: '경제&#183;금융&#183;IT 분야 주요 트렌드와 함께했던 기억이에요',
+      content: 'IT&#183;경제&#183;금융 분야 주요 트렌드와 함께했던 기억이에요',
     },
     mainProject: {
       title: 'Main Project',

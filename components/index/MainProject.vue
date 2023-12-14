@@ -75,10 +75,10 @@ class ComponentsIndexMainProject extends Vue {
     {
       text: {
         subtitle: '「미닛」 - Meaniit, Web Service',
-        title: '쉬운 설명을 제공하거나, 얻으세요',
+        title: '자료조사 & 보고서 작성 AI',
         content:
-          "사람들이 작성하는 용어 설명 및 가이드, 이곳에서 그 평가기준은 오직 '쉽다'는 것. " +
-          '쉽게 설명하는 능력을 인정받는 공간이기도 합니다',
+          '(예정) 자료조사부터 보고서 작성까지 알아서 하는 인공지능 ' +
+          '인사이트를 얻는데 드는 시간 비용을 효율화 합니다',
       },
       color: {
         backgroundGradient: 'to left, rgba(0, 0, 0,.7), rgba(0,0,0,1)',
@@ -86,7 +86,7 @@ class ComponentsIndexMainProject extends Vue {
       src: '/background/office-1209640_1920.jpg',
       btn: {
         name: '바로가기 ▶',
-        href: 'https://ko.meaniit.com/main',
+        href: 'https://knowease-inc.github.io/',
         color: 'grey lighten-2',
       },
       cardClass: 'align-center',
@@ -113,7 +113,7 @@ class ComponentsIndexMainProject extends Vue {
   ]
 
   /* computed */
-  private get heightInXS(): number | undefined {
+  get heightInXS(): number | undefined {
     const height = this.$vuetify.breakpoint.xsOnly ? 500 : 400
     return height
   }
