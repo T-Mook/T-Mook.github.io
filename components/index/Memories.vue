@@ -44,8 +44,8 @@ class ComponentsIndexMemory extends Vue {
     'text-md-subtitle-2 text-sm-overline text-overline grey--text'
 
   classOfText: {
-    title: string,
-    description: string,
+    title: string
+    description: string
   } = {
     title: 'text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
     description:
@@ -56,8 +56,8 @@ class ComponentsIndexMemory extends Vue {
     'd-flex justify-end justify-sm-start text-md-subtitle-2 text-sm-overline text-overline grey--text'
 
   classOfTextXsOnlyJustifyEnd: {
-    title: string,
-    description: string,
+    title: string
+    description: string
   } = {
     title:
       'd-flex justify-end justify-sm-start text-sm-left text-right text-md-h6 text-sm-body-1 text-body-2 font-weight-normal',
@@ -91,7 +91,7 @@ class ComponentsIndexMemory extends Vue {
       title: '정보기술(IT)',
       contents: [
         {
-          title: "'만화로 보는 IT강의",
+          title: "'만화로 보는 IT강의' SME",
           description: '2023 현대C&R 주관',
         },
         {

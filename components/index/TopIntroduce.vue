@@ -131,8 +131,8 @@ class ComponentsIndexTopIntroduce extends Vue {
 
   leftInfosOption: {
     class: {
-      title: string,
-      content: string,
+      title: string
+      content: string
     }
   } = {
     class: {
@@ -144,8 +144,8 @@ class ComponentsIndexTopIntroduce extends Vue {
 
   rightInfosOption: {
     class: {
-      title: string,
-      content: string,
+      title: string
+      content: string
     }
   } = {
     class: {

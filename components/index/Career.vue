@@ -94,7 +94,8 @@ class ComponentsIndexCareer extends Vue {
     {
       title: '「만화로 보는 IT」 강의',
       time: '2024',
-      content: '인공지능, 프롬프트 엔지니어링, 클라우드, 양자컴퓨터 개념 강의, 현대C&R 주관',
+      content:
+        '인공지능, 프롬프트 엔지니어링, 클라우드, 양자컴퓨터 개념 강의, 현대C&R 주관',
       color: 'dark grey',
       src: '',
       left: true,
@@ -107,7 +108,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「But my 보상 겪었으면, I am 재도전이에요」, 전기신문",
+      title: '「But my 보상 겪었으면, I am 재도전이에요」, 전기신문',
       time: '2023.11',
       content: '전기신문 오피니언 <금요아침> 14회',
       color: 'dark grey',
@@ -122,7 +123,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「당신이 GPT에 지루한 사이에」, 전기신문",
+      title: '「당신이 GPT에 지루한 사이에」, 전기신문',
       time: '2023.7',
       content: '전기신문 오피니언 <금요아침> 13회',
       color: 'dark grey',
@@ -152,7 +153,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「왜 개발자는 재택근무를 할 수 있는가?」, 전기신문",
+      title: '「왜 개발자는 재택근무를 할 수 있는가?」, 전기신문',
       time: '2023.7',
       content: '전기신문 오피니언 <금요아침> 12회',
       color: 'dark grey',
@@ -167,7 +168,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「경력있는 신입? 팀장급 신입을 원한다」, 전기신문",
+      title: '「경력있는 신입? 팀장급 신입을 원한다」, 전기신문',
       time: '2023.6',
       content: '전기신문 오피니언 <금요아침> 11회',
       color: 'dark grey',
@@ -182,7 +183,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「아니 땐 굴뚝에 연기를 그리는 인공지능」, 전기신문",
+      title: '「아니 땐 굴뚝에 연기를 그리는 인공지능」, 전기신문',
       time: '2023.4',
       content: '전기신문 오피니언 <금요아침> 10회',
       color: 'dark grey',
@@ -197,7 +198,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「ChatGPT는 아는 문제」, 전기신문",
+      title: '「ChatGPT는 아는 문제」, 전기신문',
       time: '2023.2',
       content: '전기신문 오피니언 <금요아침> 9회',
       color: 'dark grey',
@@ -216,7 +217,8 @@ class ComponentsIndexCareer extends Vue {
       time: '2022.12',
       content: '가치평가 약 40억 원, 대표 역',
       color: 'grey darken-4',
-      src: 'https://easyxplain-service-images.s3.ap-northeast-2.amazonaws.com/og_20220126.png',
+      src:
+        'https://easyxplain-service-images.s3.ap-northeast-2.amazonaws.com/og_20220126.png',
       left: true,
       hideDot: false,
       btn: {
@@ -227,7 +229,7 @@ class ComponentsIndexCareer extends Vue {
       },
     },
     {
-      title: "「한국은 투명한가?」, 전기신문",
+      title: '「한국은 투명한가?」, 전기신문',
       time: '2022.12',
       content: '전기신문 오피니언 <금요아침> 8회',
       color: 'dark grey',
