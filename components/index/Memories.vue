@@ -91,6 +91,10 @@ class ComponentsIndexMemory extends Vue {
       title: '정보기술(IT)',
       contents: [
         {
+          title: "중앙대 산학협력 '인공지능' 과목 SME",
+          description: '2024 에프앤이노에듀 주관',
+        },
+        {
           title: "'만화로 보는 IT강의' SME",
           description: '2023 현대C&R 주관',
         },
@@ -102,7 +106,6 @@ class ComponentsIndexMemory extends Vue {
           title: '『디지털 시대에 살아남는 IT 지식』 집필',
           description: '2021 정보문화사 출간',
         },
-        { title: '「딥러닝」 강의 영상 2위', description: '2019 Youtube 기준' },
       ],
     },
     {

@@ -92,6 +92,22 @@ class ComponentsIndexCareer extends Vue {
     }
   }> = [
     {
+      title: '「사무실 들어설 때 알아야할 인공지능 지식」 강의',
+      time: '2024',
+      content:
+        '인공지능 스타트업 개발자로서 강의, 에프앤이노에듀 주관(중앙대 산학협력단 현장실습 대체교과목)',
+      color: 'dark grey',
+      src: '',
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: true,
+        href: '',
+        text: '(예정)',
+        color: 'grey lighten-1',
+      },
+    },
+    {
       title: '「만화로 보는 IT」 강의',
       time: '2024',
       content:
@@ -105,6 +121,21 @@ class ComponentsIndexCareer extends Vue {
         href: '',
         text: '(예정)',
         color: 'grey lighten-1',
+      },
+    },
+    {
+      title: '「AI 시대에 유럽을 보는 이유」, 전기신문',
+      time: '2023.12',
+      content: '전기신문 오피니언 <금요아침> 15회',
+      color: 'dark grey',
+      src: null,
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=330507',
+        text: '읽기 >',
+        color: 'grey',
       },
     },
     {
@@ -124,7 +155,7 @@ class ComponentsIndexCareer extends Vue {
     },
     {
       title: '「당신이 GPT에 지루한 사이에」, 전기신문',
-      time: '2023.7',
+      time: '2023.9',
       content: '전기신문 오피니언 <금요아침> 13회',
       color: 'dark grey',
       src: null,
