@@ -96,7 +96,7 @@ const items: Array<{
         description: '2021-2024 Youtube',
       },
       {
-        title: '「해외투자 따라잡기」 출연ㅇ',
+        title: '「해외투자 따라잡기」 패널',
         description: '2014-2015 매일경제TV',
       },
       { title: '중국 투자전문가 담당', description: '2014-2015 유안타증권' },
