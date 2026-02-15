@@ -30,46 +30,38 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+const { $vuetify } = useNuxtApp()
 
-@Component({})
-class ComponentsIndexAdvantages extends Vue {
-  /* data */
-  private optionOfCards: {
-    color: string
-    rounded: string
-    iconSize: number
-  } = {
-    color: 'grey lighten-4',
-    rounded: 'pill',
-    iconSize: this.$vuetify.breakpoint.smAndUp
-      ? this.$vuetify.breakpoint.width / 20
-      : this.$vuetify.breakpoint.width / 10,
-  }
-
-  // My Advantages, 6개 최적화
-  private items: Array<{ icon: string; number: number; title: string }> = [
-    { icon: 'mdi-comment-text', number: 95, title: 'Speech' },
-    { icon: 'mdi-file-powerpoint', number: 90, title: 'MS PowerPoint' },
-    { icon: 'mdi-file-word', number: 75, title: 'MS Word' },
-    { icon: 'mdi-language-python', number: 70, title: 'Python' },
-    { icon: 'mdi-database', number: 70, title: 'SQL' },
-    { icon: 'mdi-language-javascript', number: 65, title: 'JavaScript' },
-  ]
-
-  /* method */
-  private setGradient(percentage: number): string {
-    const transformPercentage: string = String(100 - percentage) + '%'
-
-    const style: string =
-      'background: linear-gradient(' +
-      'to bottom, ' +
-      `rgba(0, 0, 0, 0) ${transformPercentage}, ` +
-      'rgba(0, 0, 0, 0.10) 0%)'
-    return style
-  }
+const optionOfCards: {
+  color: string
+  rounded: string
+  iconSize: number
+} = {
+  color: 'grey lighten-4',
+  rounded: 'pill',
+  iconSize: $vuetify.breakpoint.smAndUp
+    ? $vuetify.breakpoint.width / 20
+    : $vuetify.breakpoint.width / 10,
 }
 
-export default ComponentsIndexAdvantages
+const items: Array<{ icon: string; number: number; title: string }> = [
+  { icon: 'mdi-comment-text', number: 95, title: 'Speech' },
+  { icon: 'mdi-file-powerpoint', number: 90, title: 'MS PowerPoint' },
+  { icon: 'mdi-file-word', number: 75, title: 'MS Word' },
+  { icon: 'mdi-language-python', number: 70, title: 'Python' },
+  { icon: 'mdi-database', number: 70, title: 'SQL' },
+  { icon: 'mdi-language-javascript', number: 65, title: 'JavaScript' },
+]
+
+function setGradient(percentage: number): string {
+  const transformPercentage = `${100 - percentage}%`
+
+  return (
+    'background: linear-gradient(' +
+    'to bottom, ' +
+    `rgba(0, 0, 0, 0) ${transformPercentage}, ` +
+    'rgba(0, 0, 0, 0.10) 0%)'
+  )
+}
 </script>
