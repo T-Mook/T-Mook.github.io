@@ -1,38 +1,25 @@
 {
   "name": "t-mook-pages",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "lint:js": "eslint --fix --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt preview",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=.output/public --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.2",
-    "core-js": "^3.8.2",
-    "nuxt": "^2.14.12",
-    "vue-youtube-embed": "^2.2.2"
+    "@mdi/font": "^7.4.47",
+    "nuxt": "^3.14.0",
+    "push-dir": "^0.4.1",
+    "vite-plugin-vuetify": "^2.0.4",
+    "vuetify": "^3.7.0"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.15.2",
-    "@nuxt/typescript-build": "^2.0.6",
-    "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-config-typescript": "^5.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/vuetify": "^1.12.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.18.0",
-    "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.4.1",
-    "nuxt-property-decorator": "^2.9.1",
-    "prettier": "^2.2.1",
-    "push-dir": "^0.4.1"
+    "sass": "^1.83.4"
   }
 }

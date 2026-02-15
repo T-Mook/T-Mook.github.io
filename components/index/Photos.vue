@@ -93,73 +93,60 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+const { $vuetify } = useNuxtApp()
 
-@Component({})
-class ComponentsIndexPhotos extends Vue {
-  /* data */
-  private title: string = '사진들'
-  private desc: string =
-    '강연 촬영 및 외부 활동에서<br />촬영해주신 사진들입니다'
+const items: Array<{
+  src: string
+  alt: string
+  desc: string
+  color: string
+}> = [
+  {
+    src: '/photos/1.jpg',
+    alt: '마이데이터 촬영 현장',
+    desc: '다양한 활동들 <',
+    color: 'dark grey',
+  },
+  {
+    src: '/photos/2.jpg',
+    alt: '메타버스 촬영 현장',
+    desc: '메타버스 촬영 현장<br />(w. 김상균 교수님)',
+    color: 'black',
+  },
+  {
+    src: '/photos/3.jpg',
+    alt: '판교의 젊은 기획자들 촬영',
+    desc: '진행 역을 맡으며<br />직접 강연 가능 <',
+    color: 'black',
+  },
+  {
+    src: '/photos/4.jpg',
+    alt: '삼성동 제이든 미디어에서',
+    desc: '삼성동 제이든 미디어에서',
+    color: 'black',
+  },
+  {
+    src: '/photos/5.jpg',
+    alt: '프로필 사진',
+    desc: '스튜디오에서<br />빠른 임기응변 <',
+    color: 'dark grey',
+  },
+  {
+    src: '/photos/6.jpg',
+    alt: '디지털 화폐 관련 촬영 현장',
+    desc: '디지털 화폐 관련 촬영 현장',
+    color: 'black',
+  },
+]
 
-  private items: Array<{
-    src: string
-    alt: string
-    desc: string
-    color: string
-  }> = [
-    {
-      src: '/photos/1.jpg',
-      alt: '마이데이터 촬영 현장',
-      desc: '다양한 활동들 <',
-      color: 'dark grey',
-    },
-    {
-      src: '/photos/2.jpg',
-      alt: '메타버스 촬영 현장',
-      desc: '메타버스 촬영 현장<br />(w. 김상균 교수님)',
-      color: 'black',
-    },
-    {
-      src: '/photos/3.jpg',
-      alt: '판교의 젊은 기획자들 촬영',
-      desc: '진행 역을 맡으며<br />직접 강연 가능 <',
-      color: 'black',
-    },
-    {
-      src: '/photos/4.jpg',
-      alt: '삼성동 제이든 미디어에서',
-      desc: '삼성동 제이든 미디어에서',
-      color: 'black',
-    },
-    {
-      src: '/photos/5.jpg',
-      alt: '프로필 사진',
-      desc: '스튜디오에서<br />빠른 임기응변 <',
-      color: 'dark grey',
-    },
-    {
-      src: '/photos/6.jpg',
-      alt: '디지털 화폐 관련 촬영 현장',
-      desc: '디지털 화폐 관련 촬영 현장',
-      color: 'black',
-    },
-  ]
-
-  /* method */
-  private reordering(index: number): number {
-    const reidx: number =
-      this.$vuetify.breakpoint.xsOnly && index === 2
-        ? 3
-        : this.$vuetify.breakpoint.xsOnly && index === 3
-        ? 2
-        : index
-    return reidx
-  }
+function reordering(index: number): number {
+  return $vuetify.breakpoint.xsOnly && index === 2
+    ? 3
+    : $vuetify.breakpoint.xsOnly && index === 3
+    ? 2
+    : index
 }
-
-export default ComponentsIndexPhotos
 </script>
 
 <style scoped>

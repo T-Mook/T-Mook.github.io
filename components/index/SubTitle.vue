@@ -13,19 +13,15 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-@Component({})
-class ComponentsIndexSubTitle extends Vue {
-  @Prop({ type: Object, default: null }) parentItems!: {
+const props = defineProps<{
+  parentItems: {
     title: string
     content: string
   }
+}>()
 
-  /* data */
-  private items: {} = this.parentItems
-}
-
-export default ComponentsIndexSubTitle
+const items = computed(() => props.parentItems)
 </script>

@@ -113,114 +113,112 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-@Component({})
-class ComponentsIndexTopIntroduce extends Vue {
-  /* data */
-  profilePhoto: string = '/index/top_image.jpg'
-  centerCols: number = this.$vuetify.breakpoint.mdAndUp ? 4 : 8
+const { $vuetify } = useNuxtApp()
 
-  aspectRatioOfImg: number = 67 / 100
-  heightOfCols: number = this.$vuetify.breakpoint.mdAndUp
-    ? (this.$vuetify.breakpoint.width / 3 / 5) * 5
-    : this.$vuetify.breakpoint.smOnly
-    ? (this.$vuetify.breakpoint.width / 3 / 5) * 9.5 // ((window width / cols) * photo ratio
-    : (this.$vuetify.breakpoint.width / 3 / 5) * 18
+const profilePhoto = '/index/top_image.jpg'
+const aspectRatioOfImg = 67 / 100
 
-  leftInfosOption: {
-    class: {
-      title: string
-      content: string
-    }
-  } = {
-    class: {
-      title: 'text-sm-body-2 text-overline grey--text mb-0',
-      content:
-        'text-sm-body-1 text-body-2 font-weight-normal grey--text text--darken-3',
-    },
+const centerCols = computed(() => ($vuetify.breakpoint.mdAndUp ? 4 : 8))
+
+const heightOfCols = computed(() =>
+  $vuetify.breakpoint.mdAndUp
+    ? ($vuetify.breakpoint.width / 3 / 5) * 5
+    : $vuetify.breakpoint.smOnly
+    ? ($vuetify.breakpoint.width / 3 / 5) * 9.5
+    : ($vuetify.breakpoint.width / 3 / 5) * 18
+)
+
+const leftInfosOption: {
+  class: {
+    title: string
+    content: string
   }
-
-  rightInfosOption: {
-    class: {
-      title: string
-      content: string
-    }
-  } = {
-    class: {
-      title: 'text-sm-body-2 text-overline grey--text mb-0',
-      content: 'text-sm-h5 text-md-h4 text-h6 font-weight-medium',
-    },
-  }
-
-  leftItems: Array<{ title: string; content: string }> = [
-    {
-      title: '경력',
-      content:
-        '(주)게타 CEO & Developer' +
-        '<br />IT, 블록체인 기초 개념 저서 2권' +
-        '<br />(전) 유안타증권 Retail전략팀 & PB',
-    },
-    {
-      title: '주요 역량',
-      content:
-        'GPT 기능 개발 (Prompt Engineering)' +
-        '<br />웹서비스 개발 (Cloud Native)' +
-        '<br />경제&#183;금융&#183;IT 분야 강의 & 발표' +
-        '<br />영업 전략 기획 및 데이터 분석' +
-        '<br />Python, JavaScript, SQL',
-    },
-    { title: 'contact', content: 'msp770@gmail.com' },
-  ]
-
-  rightItems: Array<{ title: string; content: string }> = [
-    { title: '총 경력(년)', content: '7' },
-    { title: '시청된 강의 시간', content: '176,000' },
-    { title: '경제/금융/IT 영상 수', content: '492' },
-    { title: 'Github Contribution (2022)', content: '1,917' },
-  ]
-
-  linkBtns: Array<{ url: string; color: string; icon: string }> = [
-    {
-      url: 'https://www.youtube.com/c/TMook',
-      color: 'black',
-      icon: 'mdi-youtube',
-    },
-    {
-      url: 'https://www.linkedin.com/in/mook-t-34a0a2135/',
-      color: 'black',
-      icon: 'mdi-linkedin',
-    },
-  ]
-
-  /* computed */
-  get otherColsThanCenter(): number {
-    if (this.$vuetify.breakpoint.mdAndUp) {
-      const result: number = (12 - this.centerCols) / 2
-      return result
-    } else if (this.$vuetify.breakpoint.smOnly) {
-      return 5
-    } else {
-      return 8
-    }
-  }
-
-  /* methods */
-  reordering(idx: number): number {
-    if (this.$vuetify.breakpoint.smOnly) {
-      const reidx: number = idx === 0 ? 3 : idx === 1 ? 1 : 4
-      return reidx
-    } else if (this.$vuetify.breakpoint.xsOnly) {
-      const reidx: number = idx === 0 ? 1 : idx === 1 ? 0 : 2
-      return reidx
-    } else {
-      return idx
-    }
-  }
+} = {
+  class: {
+    title: 'text-sm-body-2 text-overline grey--text mb-0',
+    content:
+      'text-sm-body-1 text-body-2 font-weight-normal grey--text text--darken-3',
+  },
 }
 
-export default ComponentsIndexTopIntroduce
+const rightInfosOption: {
+  class: {
+    title: string
+    content: string
+  }
+} = {
+  class: {
+    title: 'text-sm-body-2 text-overline grey--text mb-0',
+    content: 'text-sm-h5 text-md-h4 text-h6 font-weight-medium',
+  },
+}
+
+const leftItems: Array<{ title: string; content: string }> = [
+  {
+    title: '경력',
+    content:
+      '(주)게타 CEO & Developer' +
+      '<br />IT, 블록체인 기초 개념 저서 2권' +
+      '<br />(전) 유안타증권 Retail전략팀 & PB',
+  },
+  {
+    title: '주요 역량',
+    content:
+      'GPT 기능 개발 (Prompt Engineering)' +
+      '<br />웹서비스 개발 (Cloud Native)' +
+      '<br />경제&#183;금융&#183;IT 분야 강의 & 발표' +
+      '<br />영업 전략 기획 및 데이터 분석' +
+      '<br />Python, JavaScript, SQL',
+  },
+  { title: 'contact', content: 'msp770@gmail.com' },
+]
+
+const rightItems: Array<{ title: string; content: string }> = [
+  { title: '총 경력(년)', content: '7' },
+  { title: '시청된 강의 시간', content: '176,000' },
+  { title: '경제/금융/IT 영상 수', content: '492' },
+  { title: 'Github Contribution (2022)', content: '1,917' },
+]
+
+const linkBtns: Array<{ url: string; color: string; icon: string }> = [
+  {
+    url: 'https://www.youtube.com/c/TMook',
+    color: 'black',
+    icon: 'mdi-youtube',
+  },
+  {
+    url: 'https://www.linkedin.com/in/mook-t-34a0a2135/',
+    color: 'black',
+    icon: 'mdi-linkedin',
+  },
+]
+
+const otherColsThanCenter = computed(() => {
+  if ($vuetify.breakpoint.mdAndUp) {
+    return (12 - centerCols.value) / 2
+  }
+
+  if ($vuetify.breakpoint.smOnly) {
+    return 5
+  }
+
+  return 8
+})
+
+function reordering(idx: number): number {
+  if ($vuetify.breakpoint.smOnly) {
+    return idx === 0 ? 3 : idx === 1 ? 1 : 4
+  }
+
+  if ($vuetify.breakpoint.xsOnly) {
+    return idx === 0 ? 1 : idx === 1 ? 0 : 2
+  }
+
+  return idx
+}
 </script>
 
 <style scoped>

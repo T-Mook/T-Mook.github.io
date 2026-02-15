@@ -1,7 +1,6 @@
 <template>
   <v-row no-gutters>
     <v-col cols="12">
-      <!-- Start : Contents -->
       <v-carousel
         cycle
         interval="8000"
@@ -24,14 +23,17 @@
                 cols="6"
                 sm="4"
               >
-                <!-- Start : Embeded Youtube Video (vue-youtube-embed) -->
-                <youtube
-                  :video-id="video.vid"
-                  :player-width="responsiveWidth"
-                  :player-height="responsiveHeight"
-                  class="d-flex justify-center mb-2"
-                />
-                <!-- End : Embeded Youtube Video (vue-youtube-embed) -->
+                <div class="d-flex justify-center mb-2">
+                  <iframe
+                    :width="responsiveWidth"
+                    :height="responsiveHeight"
+                    :src="`https://www.youtube.com/embed/${video.vid}`"
+                    :title="video.desc"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  />
+                </div>
                 <p class="text-caption text-center">
                   {{ video.desc }}
                 </p>
@@ -44,52 +46,38 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-@Component({})
-class ComponentsIndexMainYoutubeVideo extends Vue {
-  /* data */
-  private title: string = '인기 영상'
-  private desc: string =
-    'Youtube를 통해서 많은 분들이<br>시청해주신 영상들 중 일부입니다'
+const { $vuetify } = useNuxtApp()
 
-  private tagid: string = 'top-view-youtube'
-  private videoInfos: Array<Array<{ vid: string; desc: string }>> = [
-    [
-      { vid: '662wnupQ8fg', desc: '블록체인' },
-      { vid: 'QzrIBsod1_A', desc: '딥러닝' },
-      { vid: 'bEdfc5tdi7c', desc: '통화스왑' },
-    ],
-    [
-      { vid: 'm_4JyZGoVCQ', desc: '클라우드 컴퓨팅' },
-      { vid: 'Nazn65-z6VQ', desc: '롤오버 효과' },
-      { vid: 'rrFVn3AYpzw', desc: '채권' },
-    ],
-    [
-      { vid: 'SGTNcrjCrS8', desc: '그래픽처리장치(GPU)' },
-      { vid: 'e9v6ST9oTB0', desc: '디지털 트윈' },
-      { vid: 'E36MpUg5M54', desc: '다크웹' },
-    ],
-  ]
+const videoInfos: Array<Array<{ vid: string; desc: string }>> = [
+  [
+    { vid: '662wnupQ8fg', desc: '블록체인' },
+    { vid: 'QzrIBsod1_A', desc: '딥러닝' },
+    { vid: 'bEdfc5tdi7c', desc: '통화스왑' },
+  ],
+  [
+    { vid: 'm_4JyZGoVCQ', desc: '클라우드 컴퓨팅' },
+    { vid: 'Nazn65-z6VQ', desc: '롤오버 효과' },
+    { vid: 'rrFVn3AYpzw', desc: '채권' },
+  ],
+  [
+    { vid: 'SGTNcrjCrS8', desc: '그래픽처리장치(GPU)' },
+    { vid: 'e9v6ST9oTB0', desc: '디지털 트윈' },
+    { vid: 'E36MpUg5M54', desc: '다크웹' },
+  ],
+]
 
-  /* computed */
-  private get responsiveWidth(): number {
-    const currentWidth: number = this.$vuetify.breakpoint.lgAndUp
-      ? 1264
-      : this.$vuetify.breakpoint.width
-    const dividNumber: number = this.$vuetify.breakpoint.xsOnly ? 2 : 3
-    const minusNumber: number = this.$vuetify.breakpoint.xsOnly ? 8 : 16
+const responsiveWidth = computed(() => {
+  const currentWidth = $vuetify.breakpoint.lgAndUp
+    ? 1264
+    : $vuetify.breakpoint.width
+  const dividNumber = $vuetify.breakpoint.xsOnly ? 2 : 3
+  const minusNumber = $vuetify.breakpoint.xsOnly ? 8 : 16
 
-    const cardWidth: number = currentWidth / dividNumber - minusNumber
-    return cardWidth
-  }
+  return currentWidth / dividNumber - minusNumber
+})
 
-  private get responsiveHeight(): number {
-    const height: number = (this.responsiveWidth / 16) * 9
-    return height
-  }
-}
-
-export default ComponentsIndexMainYoutubeVideo
+const responsiveHeight = computed(() => (responsiveWidth.value / 16) * 9)
 </script>

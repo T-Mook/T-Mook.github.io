@@ -71,12 +71,12 @@
   </v-row>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-@Component({})
-class ComponentsIndexCareer extends Vue {
-  items: Array<{
+const { $vuetify } = useNuxtApp()
+
+const items: Array<{
     src: null | string
     title: string
     time: string
@@ -723,18 +723,13 @@ class ComponentsIndexCareer extends Vue {
     },
   ]
 
-  /* computed */
-  get imageSizeOfsmAndDown(): number | undefined {
-    const width: number | undefined = this.$vuetify.breakpoint.smOnly
-      ? this.$vuetify.breakpoint.width / 2 - 40
-      : this.$vuetify.breakpoint.xsOnly
-      ? this.$vuetify.breakpoint.width - 130
-      : undefined
-    return width
-  }
-}
-
-export default ComponentsIndexCareer
+const imageSizeOfsmAndDown = computed<number | undefined>(() =>
+  $vuetify.breakpoint.smOnly
+    ? $vuetify.breakpoint.width / 2 - 40
+    : $vuetify.breakpoint.xsOnly
+    ? $vuetify.breakpoint.width - 130
+    : undefined
+)
 </script>
 
 <style scoped>
