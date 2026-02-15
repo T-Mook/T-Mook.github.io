@@ -50,14 +50,6 @@
     />
     <main-project :class="classOfComponent" />
 
-    <!-- Start : Main Youtube Video -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
-    <sub-title
-      :parent-items="objectOfParentItems.mainYoutubeVideo"
-      :class="classOfComponent + ' pt-md-10'"
-    />
-    <main-youtube-video :class="classOfComponent" />
-
     <!-- Start : Career Detail -->
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
     <sub-title
@@ -73,6 +65,14 @@
       :class="classOfComponent + ' pt-md-10'"
     />
     <photos :class="classOfComponent" />
+
+    <!-- Start : Main Youtube Video -->
+    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.mainYoutubeVideo"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <main-youtube-video :class="classOfComponent" />
   </v-container>
 </template>
 
@@ -97,7 +97,7 @@ const objectOfParentItems: {
   },
   memory: {
     title: 'Memories',
-    content: 'IT&#183;경제&#183;금융 분야 주요 트렌드와 함께했던 기억이에요',
+    content: '각 분야 주요 트렌드와 함께했던 순간입니다',
   },
   mainProject: {
     title: 'Main Project',

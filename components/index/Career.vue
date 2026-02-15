@@ -1,7 +1,10 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12" md="10">
-      <v-timeline :dense="$vuetify.breakpoint.xsOnly" class="px-md-10 px-sm-4">
+    <v-col cols="12">
+      <v-timeline
+        :dense="$vuetify.breakpoint.xsOnly"
+        class="career-timeline px-md-10 px-sm-4"
+      >
         <v-timeline-item
           v-for="(item, index) in items"
           :key="index"
@@ -16,7 +19,7 @@
           </template>
 
           <!-- Start : Content -->
-          <v-card>
+          <v-card class="career-card">
             <!-- Start : Image -->
             <v-img
               v-if="!!item.src"
@@ -24,12 +27,13 @@
               :src="item.src"
               :max-width="imageSizeOfsmAndDown"
               contain
-            />
-            <template #placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular indeterminate color="grey lighten-5" />
-              </v-row>
-            </template>
+            >
+              <template #placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular indeterminate color="grey lighten-5" />
+                </v-row>
+              </template>
+            </v-img>
 
             <!-- Start : Text -->
             <v-card-title
@@ -90,6 +94,36 @@ const items: Array<{
     }
   }> = [
     {
+      title: '머스크, 테슬라 AI 시대의 생존 전략',
+      time: '2025.11',
+      content: '일론 머스크, 테슬라의 도전, 성장, 위기를 통해 AI 시대 생존 전략 인사이트',
+      color: 'dark grey',
+      src: null,
+      left: true,
+      hideDot: false,
+      btn: {
+        bool: false,
+        href: '',
+        text: '',
+        color: 'grey',
+      },
+    },
+    {
+      title: '전기신문 오피니언 <금요아침>',
+      time: '2021.8 - 2025.6',
+      content: '외부 필진 (스타트업의 시각으로 보는 기술, 금융 중심 오피니언)',
+      color: 'dark grey',
+      src: '',
+      left: false,
+      hideDot: true,
+      btn: {
+        bool: true,
+        href: 'https://www.electimes.com/news/articleView.html?idxno=356015',
+        text: '읽기 >',
+        color: 'grey',
+      },
+    },
+    {
       title: '「사무실 들어설 때 알아야할 인공지능 지식」 강의',
       time: '2024',
       content:
@@ -101,7 +135,7 @@ const items: Array<{
       btn: {
         bool: true,
         href: '',
-        text: '(공개 예정)',
+        text: '',
         color: 'grey lighten-1',
       },
     },
@@ -117,7 +151,7 @@ const items: Array<{
       btn: {
         bool: true,
         href: '',
-        text: '(공개 예정)',
+        text: '',
         color: 'grey lighten-1',
       },
     },
@@ -138,96 +172,6 @@ const items: Array<{
       },
     },
     {
-      title: '「‘LLM의 약점’을 알아야, 미래가 보인다」, 전기신문',
-      time: '2024.5',
-      content: '전기신문 오피니언 <금요아침> 18회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=337685',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「무지해야 하는 AI」, 전기신문',
-      time: '2024.4',
-      content: '전기신문 오피니언 <금요아침> 17회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=335576',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「닷컴버블은 막연한 기대감이었고 AI붐은 아니다?」, 전기신문',
-      time: '2024.2',
-      content: '전기신문 오피니언 <금요아침> 16회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=333005',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「AI 시대에 유럽을 보는 이유」, 전기신문',
-      time: '2023.12',
-      content: '전기신문 오피니언 <금요아침> 15회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=330507',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「But my 보상 겪었으면, I am 재도전이에요」, 전기신문',
-      time: '2023.11',
-      content: '전기신문 오피니언 <금요아침> 14회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=328141',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「당신이 GPT에 지루한 사이에」, 전기신문',
-      time: '2023.9',
-      content: '전기신문 오피니언 <금요아침> 13회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=325877',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
       title: '「마이데이터 비즈니스 전략」 강의',
       time: '2023.7',
       content: '마이데이터 시대 비즈니스 전략 강의 촬영, 현대C&R 주관',
@@ -240,66 +184,6 @@ const items: Array<{
         href: 'https://www.youtube.com/watch?v=nRxjdIwdaqo',
         text: '맛보기 >',
         color: 'grey lighten-1',
-      },
-    },
-    {
-      title: '「왜 개발자는 재택근무를 할 수 있는가?」, 전기신문',
-      time: '2023.7',
-      content: '전기신문 오피니언 <금요아침> 12회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=323573',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「경력있는 신입? 팀장급 신입을 원한다」, 전기신문',
-      time: '2023.6',
-      content: '전기신문 오피니언 <금요아침> 11회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=321382',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「아니 땐 굴뚝에 연기를 그리는 인공지능」, 전기신문',
-      time: '2023.4',
-      content: '전기신문 오피니언 <금요아침> 10회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=315134',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「ChatGPT는 아는 문제」, 전기신문',
-      time: '2023.2',
-      content: '전기신문 오피니언 <금요아침> 9회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=315134',
-        text: '읽기 >',
-        color: 'grey',
       },
     },
     {
@@ -319,66 +203,6 @@ const items: Array<{
       },
     },
     {
-      title: '「한국은 투명한가?」, 전기신문',
-      time: '2022.12',
-      content: '전기신문 오피니언 <금요아침> 8회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=312141',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: "「온라인에는 '바퀴벌레 모텔'이 득시글하다」, 전기신문",
-      time: '2022.9',
-      content: '전기신문 오피니언 <금요아침> 7회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=308920',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: "「'편하게 가입하는 금융상품 안전한가' 경각심 가질 것」, 전기신문",
-      time: '2022.7',
-      content: '전기신문 오피니언 <금요아침> 6회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=306372',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「직원을 추앙하기 위한 기술적 사랑」, 전기신문',
-      time: '2022.6',
-      content: '전기신문 오피니언 <금요아침> 5회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=306372',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
       title: '「디지털 시대에 살아남는 IT 지식」 특강',
       time: '2022.5',
       content: "'임직원 동행' 세미나 일환으로 (주)GS E&R 사내강연 제공",
@@ -394,7 +218,7 @@ const items: Array<{
       },
     },
     {
-      title: '신규 입사자「디지털 전환」 특강',
+      title: '신규 입사자 「디지털 전환」 특강',
       time: '2022.3',
       content: '신규 입사자 위한 DT 세미나로서 (주)대동 출강',
       color: 'dark grey',
@@ -405,21 +229,6 @@ const items: Array<{
         bool: false,
         href: '',
         text: '',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「비전공 직원 코딩하게 만들기」, 전기신문',
-      time: '2022.3',
-      content: '전기신문 오피니언 <금요아침> 4회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://www.electimes.com/news/articleView.html?idxno=302019',
-        text: '읽기 >',
         color: 'grey',
       },
     },
@@ -440,21 +249,6 @@ const items: Array<{
       },
     },
     {
-      title: '「코딩 교육이 디지털 전환은 아니다」, 전기신문',
-      time: '2022.1',
-      content: '전기신문 오피니언 <금요아침> 3회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://electimes.com/article.php?aid=1641165264227348050',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
       title: '「새로운 시장을 성공으로 이끄는 판교의 젊은 기획자들」 출연',
       time: '2021.12',
       content: '현대C&R 주관, 진행 및 내용전문가 참여 4차시',
@@ -467,21 +261,6 @@ const items: Array<{
         href:
           'https://www.hihrd.co.kr/usrs/eduRegMgnt/crsInfoDetailForm.do;jsessionid=Gpu1FTByGHBTRRrDsXOeP0FCDPaVEa37tHt2n0NYPamUJEAwp0avVbR2kH7kWlFM.LMS_WAS_002_servlet_engine2?p_crscd=9782&CRSCD=9782&p_hmpgcd=38&p_listType=N&mkey=6442',
         text: '확인 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「한글을 향할 때, 코인도 돈도 보인다」, 전기신문',
-      time: '2021.10',
-      content: '전기신문 오피니언 <금요아침> 2회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'http://www.electimes.com/article.php?aid=1634703205224009050',
-        text: '읽기 >',
         color: 'grey',
       },
     },
@@ -513,21 +292,6 @@ const items: Array<{
       btn: {
         bool: false,
         href: '',
-        text: '읽기 >',
-        color: 'grey',
-      },
-    },
-    {
-      title: '「비전문가에게 전문지가 필요한 때」, 전기신문',
-      time: '2021.8',
-      content: '전기신문 오피니언 <금요아침> 1회',
-      color: 'dark grey',
-      src: null,
-      left: false,
-      hideDot: true,
-      btn: {
-        bool: true,
-        href: 'https://electimes.com/article.php?aid=1628558190221243050',
         text: '읽기 >',
         color: 'grey',
       },
@@ -731,6 +495,54 @@ const imageSizeOfsmAndDown = computed<number | undefined>(() =>
 </script>
 
 <style scoped>
+.career-timeline {
+  --career-side-width: 520px;
+}
+
+.career-card {
+  width: var(--career-side-width);
+  max-width: calc(100vw - 64px);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1264px) {
+  .career-timeline {
+    --career-side-width: 460px;
+  }
+
+  .career-card {
+    width: var(--career-side-width);
+  }
+}
+
+@media (max-width: 960px) {
+  .career-timeline {
+    --career-side-width: 100%;
+  }
+
+  .career-card {
+    width: 100%;
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 961px) {
+  :deep(.career-timeline .v-timeline-item__body),
+  :deep(.career-timeline .v-timeline-item__opposite) {
+    flex: 0 0 var(--career-side-width);
+    max-width: var(--career-side-width);
+  }
+
+  :deep(.career-timeline .v-timeline-item__body) {
+    margin-inline: 0;
+  }
+
+  :deep(.career-timeline .v-timeline-item__opposite) {
+    padding-inline: 0;
+  }
+}
+
 #career-card-image {
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */

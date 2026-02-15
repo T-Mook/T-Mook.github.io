@@ -9,14 +9,18 @@
       :order="reordering(index)"
     >
       <v-hover>
-        <template #default="{ hover }">
+        <template #default="{ isHovering, props }">
           <!-- Start : Photo (Odd) -->
           <v-img
             v-if="index % 2 === 1"
+            v-bind="props"
             id="photos-card-image"
             :src="item.src"
+            width="100%"
+            height="100%"
             aspect-ratio="1"
-            class="grey lighten-2"
+            cover
+            class="grey lighten-2 photos-fill"
           >
             <template #placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
@@ -24,7 +28,7 @@
               </v-row>
             </template>
             <v-fade-transition>
-              <v-overlay v-if="hover" absolute :color="item.color">
+              <v-overlay v-if="isHovering" contained :color="item.color">
                 <p class="text-subtitle-1" v-html="item.desc" />
               </v-overlay>
             </v-fade-transition>
@@ -33,6 +37,7 @@
           <!-- Start : Color Board (Even)-->
           <v-card
             v-else
+            v-bind="props"
             width="100%"
             height="100%"
             :color="item.color"
@@ -41,51 +46,36 @@
             flat
             class="d-flex justify-start align-center"
           >
-            <v-card-title>
-              <p class="text-subtitle-1" v-html="item.desc" />
-            </v-card-title>
+            <v-fade-transition mode="out-in">
+              <v-card-title v-if="!isHovering" key="text">
+                <p class="text-subtitle-1" v-html="item.desc" />
+              </v-card-title>
 
-            <!-- Start : Progress circular -->
-            <template #placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular indeterminate color="grey lighten-5" />
-              </v-row>
-            </template>
-
-            <!-- Start : Overlay Img-->
-            <v-fade-transition>
-              <v-overlay v-if="hover" absolute opacity="0%">
-                <v-card min-width="100%" min-height="100%" tile>
-                  <v-img
-                    width="100%"
-                    height="100%"
-                    :src="item.src"
-                    aspect-ratio="1"
-                  >
-                    <template #placeholder>
-                      <v-row
-                        class="fill-height ma-0"
-                        align="center"
-                        justify="center"
-                      >
-                        <v-progress-circular
-                          indeterminate
-                          color="grey lighten-5"
-                        />
-                      </v-row>
-                    </template>
-
-                    <v-card-title>
-                      <p
-                        class="text-h3"
-                        style="color: rgba(0, 0, 0, 0)"
-                        v-html="item.alt"
-                      />
-                    </v-card-title>
-                  </v-img>
-                </v-card>
-              </v-overlay>
+              <v-img
+                v-else
+                key="image"
+                width="100%"
+                height="100%"
+                :src="item.src"
+                aspect-ratio="1"
+                cover
+                class="photos-fill"
+              >
+                <template #placeholder>
+                  <v-row class="fill-height ma-0" align="center" justify="center">
+                    <v-progress-circular indeterminate color="grey lighten-5" />
+                  </v-row>
+                </template>
+                <v-card-title>
+                  <p
+                    class="text-h3"
+                    style="color: rgba(0, 0, 0, 0)"
+                    v-html="item.alt"
+                  />
+                </v-card-title>
+              </v-img>
             </v-fade-transition>
+
           </v-card>
         </template>
       </v-hover>
@@ -106,7 +96,7 @@ const items: Array<{
     src: '/photos/1.jpg',
     alt: '마이데이터 촬영 현장',
     desc: '다양한 활동들 <',
-    color: 'dark grey',
+    color: '#9e9e9e',
   },
   {
     src: '/photos/2.jpg',
@@ -130,7 +120,7 @@ const items: Array<{
     src: '/photos/5.jpg',
     alt: '프로필 사진',
     desc: '스튜디오에서<br />빠른 임기응변 <',
-    color: 'dark grey',
+    color: '#9e9e9e',
   },
   {
     src: '/photos/6.jpg',
@@ -160,5 +150,10 @@ function reordering(index: number): number {
 #photos-card-image:hover {
   -webkit-filter: grayscale(0);
   filter: none;
+}
+
+.photos-fill :deep(.v-img__img),
+.photos-fill :deep(.v-img__picture) {
+  object-fit: cover;
 }
 </style>

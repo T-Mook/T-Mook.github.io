@@ -69,6 +69,10 @@ const items: Array<{
     title: '정보기술(IT)',
     contents: [
       {
+        title: "테슬라로 보는 AI 경영 인사이트",
+        description: '2025 현대C&R 주관',
+      },
+      {
         title: "중앙대 산학협력 'AI' 과목 SME",
         description: '2024 에프앤이노에듀 주관',
       },
@@ -90,7 +94,7 @@ const items: Array<{
         description: '2021-2024 Youtube',
       },
       {
-        title: '「해외투자 따라잡기」 출연',
+        title: '「해외투자 따라잡기」 출연ㅇ',
         description: '2014-2015 매일경제TV',
       },
       { title: '중국 투자전문가 담당', description: '2014-2015 유안타증권' },
@@ -99,10 +103,6 @@ const items: Array<{
   {
     title: '그 외',
     contents: [
-      {
-        title: "2025 테슬라로 보는 경영 인사이트",
-        description: '2025 현대C&R 주관',
-      },
       {
         title: '『디지털 화폐의 유형과 원리』 진행',
         description: '2021 케이브레인 제작',
