@@ -79,8 +79,8 @@
 <script setup lang="ts">
 const { $vuetify } = useNuxtApp()
 
-const titleOfTop = 'Park Sung-mouk<br />Web Developer <small>&</small> Strategist'
-const subTitleOfTop = 'IT&#183;경제&#183;금융 트렌드 설명하는 개발자'
+const titleOfTop = 'Park Sung-mouk<br />Developer <small>&</small> Strategist'
+const subTitleOfTop = 'AI SaaS, 업무 자동화 PM <small>그리고</small> 강사'
 const classOfComponent = 'my-md-10'
 
 const objectOfParentItems: {
