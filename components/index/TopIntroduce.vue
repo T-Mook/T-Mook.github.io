@@ -163,7 +163,7 @@ const leftItems: Array<{ title: string; content: string }> = [
     title: '경력',
     content:
       '(주)게타 CEO & Developer' +
-      '<br />IT, 블록체인 기초 개념 저서 2권' +
+      '<br />IT 기초 개념 저서 2권' +
       '<br />(전) 유안타증권 Retail전략팀 & PB',
   },
   {
