@@ -101,7 +101,7 @@ const objectOfParentItems: {
   },
   mainProject: {
     title: 'Main Project',
-    content: '최근 많은 분들과 함께 진행되고 있는 주요 프로젝트입니다',
+    content: '최근 진행하는 주요 프로젝트입니다',
   },
   mainYoutubeVideo: {
     title: 'Best Youtube',

@@ -21,7 +21,7 @@
         />
         <v-card-text
           :class="
-            index !== 1
+            index !== 4
               ? classOfText.description
               : classOfTextXsOnlyJustifyEnd.description
           "
@@ -66,15 +66,28 @@ const items: Array<{
   contents: Array<{ title: string; description: string }>
 }> = [
   {
+    title: '정보기술(IT)',
+    contents: [
+      {
+        title: "중앙대 산학협력 'AI' 과목 SME",
+        description: '2024 에프앤이노에듀 주관',
+      },
+      {
+        title: "'만화로 보는 IT강의' SME",
+        description: '2023 현대C&R 주관',
+      },
+      {
+        title: '『디지털 시대에 살아남는 IT 지식』 집필',
+        description: '2021 정보문화사 출간',
+      },
+    ],
+  },
+  {
     title: '경제&#183;금융',
     contents: [
       {
-        title: '주간 LIVE 방송 진행',
-        description: '2021-(현재) Youtube',
-      },
-      {
-        title: 'GDPR, PSD2와 오픈뱅킹 개념 강의',
-        description: '2018 Youtube',
+        title: '주간 IT&#183;금융 LIVE 방송',
+        description: '2021-2024 Youtube',
       },
       {
         title: '「해외투자 따라잡기」 출연',
@@ -84,29 +97,12 @@ const items: Array<{
     ],
   },
   {
-    title: '정보기술(IT)',
+    title: '그 외',
     contents: [
       {
-        title: "중앙대 산학협력 '인공지능' 과목 SME",
-        description: '2024 에프앤이노에듀 주관',
+        title: "2025 테슬라로 보는 경영 인사이트",
+        description: '2025 현대C&R 주관',
       },
-      {
-        title: "'만화로 보는 IT강의' SME",
-        description: '2023 현대C&R 주관',
-      },
-      {
-        title: "'마이데이터' 비즈니스 전략 SME",
-        description: '2022 현대C&R 주관',
-      },
-      {
-        title: '『디지털 시대에 살아남는 IT 지식』 집필',
-        description: '2021 정보문화사 출간',
-      },
-    ],
-  },
-  {
-    title: '블록체인',
-    contents: [
       {
         title: '『디지털 화폐의 유형과 원리』 진행',
         description: '2021 케이브레인 제작',
@@ -118,10 +114,6 @@ const items: Array<{
       {
         title: '『보면 아는 블록체인』 집필',
         description: '2018 정보문화사 출간',
-      },
-      {
-        title: '「블록체인」 강의 영상 1위',
-        description: '2016-2017 Youtube 기준',
       },
     ],
   },
