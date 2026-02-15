@@ -169,7 +169,8 @@ const leftItems: Array<{ title: string; content: string }> = [
   {
     title: '주요 역량',
     content:
-      'GPT 기능 개발 (Prompt Engineering)' +
+      'Agentic System 기반 업무 자동화' +
+      '<br />Generative AI 기반 서비스 개발' +
       '<br />웹서비스 개발 (Cloud Native)' +
       '<br />경제&#183;금융&#183;IT 분야 강의 & 발표' +
       '<br />영업 전략 기획 및 데이터 분석' +
@@ -179,10 +180,10 @@ const leftItems: Array<{ title: string; content: string }> = [
 ]
 
 const rightItems: Array<{ title: string; content: string }> = [
-  { title: '총 경력(년)', content: '7' },
-  { title: '시청된 강의 시간', content: '176,000' },
+  { title: '총 경력(년)', content: '11' },
+  { title: '시청된 강의 시간', content: '197,000' },
   { title: '경제/금융/IT 영상 수', content: '492' },
-  { title: 'Github Contribution (2022)', content: '1,917' },
+  { title: 'Github Contribution (2025)', content: '2,098' },
 ]
 
 const linkBtns: Array<{ url: string; color: string; icon: string }> = [

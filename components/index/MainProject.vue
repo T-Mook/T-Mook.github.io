@@ -57,11 +57,11 @@ const projects: Array<{
 }> = [
   {
     text: {
-      subtitle: '「미닛」 - Meaniit, Web Service',
-      title: '자료조사 & 보고서 작성 AI',
+      subtitle: '「만개동화」 아이를 위한 맞춤 동화책 제작·구매',
+      title: '아이 사진, 이야기 담은 동화책 선물',
       content:
-        '(예정) 자료조사부터 보고서 작성까지 알아서 하는 인공지능 ' +
-        '인사이트를 얻는데 드는 시간 비용을 효율화 합니다',
+        '특별한 날 선물하기 좋은 동화책으로 제작되어 ' +
+        '집으로 받아볼 수 있어요. #생일선물 #출산선물 #돌 #두돌 #성장동화 #성장앨범',
     },
     color: {
       backgroundGradient: 'to left, rgba(0, 0, 0,.7), rgba(0,0,0,1)',
@@ -69,17 +69,16 @@ const projects: Array<{
     src: '/background/office-1209640_1920.jpg',
     btn: {
       name: '바로가기 ▶',
-      href: 'https://knowease-inc.github.io/',
+      href: 'https://bloomingtales.io',
       color: 'grey-lighten-2',
     },
   },
   {
     text: {
       subtitle: '「TMook」 - Youtube Channel',
-      title: '금융/경제/IT 설명 쉽게 듣고 보세요',
+      title: 'IT/금융/경제 설명 쉽게 듣고 보세요',
       content:
-        '실시간 소통 또는 편집영상을 통해 관심있는, 또는 화제의 어려운 용어들을 다룹니다. ' +
-        '매주 수요일 저녁 9시 LIVE 진행됩니다',
+        '실시간 소통 또는 편집영상을 통해 관심있는, 또는 화제의 어려운 용어들을 다룹니다.',
     },
     color: {
       backgroundGradient: 'to left bottom, rgba(0,0,0,1), rgba(0,0,0,.3)',

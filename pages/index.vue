@@ -25,12 +25,14 @@
     <top-introduce :class="classOfComponent" />
 
     <!-- Start : Skills -->
+    <!--
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
     <sub-title
       :parent-items="objectOfParentItems.advantages"
       :class="classOfComponent + ' pt-md-10'"
     />
     <advantages :class="classOfComponent" />
+    -->
 
     <!-- Start : Memory -->
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
