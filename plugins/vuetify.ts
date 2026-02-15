@@ -52,5 +52,4 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   nuxtApp.provide('vuetify', vuetifyBridge)
-  nuxtApp.vueApp.config.globalProperties.$vuetify = vuetifyBridge
 })

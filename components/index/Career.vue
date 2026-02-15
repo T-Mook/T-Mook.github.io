@@ -6,11 +6,9 @@
           v-for="(item, index) in items"
           :key="index"
           :color="item.color"
-          :left="item.left"
-          :right="!item.left"
+          :side="item.left ? 'start' : 'end'"
           :hide-dot="item.hideDot"
           small
-          :class="item.left == true ? 'd-flex justify-end' : ''"
         >
           <!-- Start : Time -->
           <template #opposite>
@@ -54,8 +52,8 @@
               class="d-flex justify-end pr-3"
             >
               <v-btn
-                text
-                small
+                variant="text"
+                size="small"
                 :color="item.btn.color"
                 :href="item.btn.href"
                 :disabled="item.btn.href === ''"

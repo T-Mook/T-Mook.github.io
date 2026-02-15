@@ -1,42 +1,33 @@
 <template>
   <v-row justify="center" no-gutters>
-    <v-col v-for="(project, index) in projects" :key="index" cols="12" md="5">
-      <v-card :width="width" flat tile dark>
+    <v-col v-for="(project, index) in projects" :key="index" cols="12" md="6">
+      <v-card flat tile>
         <v-img
           :src="project.src"
           :gradient="project.color.backgroundGradient"
           :height="heightInXS"
-          :max-width="
-            $vuetify.breakpoint.mdAndUp
-              ? $vuetify.breakpoint.width / 2
-              : $vuetify.breakpoint.width
-          "
-          class="align-center"
+          cover
+          class="project-image"
         >
-          <v-card-subtitle class="text-md-h6 grey--text text--lighten-2 pb-0">
-            {{ project.text.subtitle }}
-          </v-card-subtitle>
-
-          <v-card-title class="text-md-h4 white--text">
-            {{ project.text.title }}
-          </v-card-title>
-
-          <v-card-text
-            class="text-md-body-2 grey--text text--lighten-2"
-            v-html="project.text.content"
-          />
-
-          <v-btn
-            outlined
-            rounded="pill"
-            depressed
-            :x-small="$vuetify.breakpoint.xsOnly"
-            :color="project.btn.color"
-            :href="project.btn.href"
-            class="mt-6 ml-5"
-          >
-            {{ project.btn.name }}
-          </v-btn>
+          <div class="project-overlay">
+            <p class="project-subtitle">
+              {{ project.text.subtitle }}
+            </p>
+            <p class="project-title">
+              {{ project.text.title }}
+            </p>
+            <p class="project-content" v-html="project.text.content" />
+            <v-btn
+              variant="outlined"
+              rounded="pill"
+              :size="$vuetify.breakpoint.xsOnly ? 'small' : 'default'"
+              :color="project.btn.color"
+              :href="project.btn.href"
+              class="mt-6 project-btn"
+            >
+              {{ project.btn.name }}
+            </v-btn>
+          </div>
         </v-img>
       </v-card>
     </v-col>
@@ -48,7 +39,6 @@ import { computed } from 'vue'
 
 const { $vuetify } = useNuxtApp()
 
-const width = $vuetify.breakpoint.width - 40
 const projects: Array<{
   text: {
     subtitle: string
@@ -64,7 +54,6 @@ const projects: Array<{
     href: string | undefined
     color: string
   }
-  cardClass: string
 }> = [
   {
     text: {
@@ -81,9 +70,8 @@ const projects: Array<{
     btn: {
       name: '바로가기 ▶',
       href: 'https://knowease-inc.github.io/',
-      color: 'grey lighten-2',
+      color: 'grey-lighten-2',
     },
-    cardClass: 'align-center',
   },
   {
     text: {
@@ -100,11 +88,93 @@ const projects: Array<{
     btn: {
       name: 'Youtube ▶',
       href: 'https://youtube.com/c/TMook',
-      color: 'grey lighten-2',
+      color: 'grey-lighten-2',
     },
-    cardClass: 'justify-end align-center',
   },
 ]
 
 const heightInXS = computed(() => ($vuetify.breakpoint.xsOnly ? 500 : 400))
 </script>
+
+<style scoped>
+.project-image :deep(.v-img__img) {
+  z-index: 0;
+}
+
+.project-image :deep(.v-img__gradient) {
+  z-index: 1;
+}
+
+.project-image :deep(.v-responsive__content) {
+  position: relative;
+  z-index: 2;
+}
+
+.project-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding: 2rem 1.75rem 2rem 1rem;
+  color: #f0f0f0;
+}
+
+.project-subtitle {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.2rem, 1.45vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: #d6d6d6;
+}
+
+.project-title {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.9rem, 2.35vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+  color: #fff;
+}
+
+.project-content {
+  margin: 0;
+  font-size: clamp(0.95rem, 0.95vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #d9d9d9;
+}
+
+.project-btn {
+  width: fit-content;
+  min-height: 2.25rem;
+  padding: 0 1.15rem;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #f2f2f2 !important;
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+@media (max-width: 600px) {
+  .project-overlay {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .project-content {
+    font-size: 0.95rem;
+  }
+
+  .project-btn {
+    font-size: 0.9rem;
+  }
+}
+</style>

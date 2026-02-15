@@ -1,26 +1,30 @@
 <template>
-  <v-row id="top-introduce-row" align="center" justify="center">
+  <v-row id="top-introduce-row" align="center" justify="center" no-gutters>
     <!-- ### Start : column 1 ### -->
     <v-col
       id="top-introduce-col-1"
       cols="12"
       :sm="otherColsThanCenter"
       :order="reordering(0)"
-      class="fill-height"
+      class="fill-height side-col side-col-left"
     >
-      <v-container fluid class="fill-height">
-        <!-- Start : left cards -->
-        <v-row v-for="(item, index) in leftItems" :key="index" no-gutters>
-          <v-sheet :height="heightOfCols / leftItems.length">
-            <v-card-subtitle class="pb-0">
+      <v-container fluid class="fill-height px-0">
+        <div class="info-stack" :style="{ height: `${heightOfCols}px` }">
+          <v-sheet
+            v-for="(item, index) in leftItems"
+            :key="index"
+            class="info-item"
+            color="transparent"
+          >
+            <v-card-subtitle class="pb-0 px-0">
               <p :class="leftInfosOption.class.title" v-html="item.title" />
             </v-card-subtitle>
 
-            <v-card-title>
+            <v-card-title class="px-0">
               <p :class="leftInfosOption.class.content" v-html="item.content" />
             </v-card-title>
 
-            <v-card-actions v-if="index === 2" class="pt-0">
+            <v-card-actions v-if="index === 2" class="pt-0 px-0">
               <v-btn
                 v-for="(linkBtn, btnIndex) in linkBtns"
                 :key="btnIndex"
@@ -32,7 +36,7 @@
               </v-btn>
             </v-card-actions>
           </v-sheet>
-        </v-row>
+        </div>
       </v-container>
     </v-col>
 
@@ -44,7 +48,7 @@
       :order="reordering(1)"
       class="fill-height"
     >
-      <v-card rounded="pill" outlined class="pa-4 pa-sm-8 pa-md-4">
+      <v-card rounded="pill" outlined class="center-image-shell pa-4 pa-sm-8 pa-md-4">
         <v-card rounded="pill" outlined>
           <v-img
             :id="$vuetify.breakpoint.mdAndUp ? 'top-image' : 'top-image-color'"
@@ -68,30 +72,28 @@
       cols="12"
       :sm="otherColsThanCenter"
       :order="reordering(2)"
-      class="fill-height"
+      class="fill-height side-col side-col-right"
     >
-      <v-container fluid class="fill-height">
-        <!-- Start : left cards -->
-        <v-row
-          v-for="(item, index) in rightItems"
-          :key="index"
-          justify-sm="end"
-          justify="end"
-          no-gutters
-        >
-          <v-sheet :height="heightOfCols / rightItems.length">
-            <v-card-subtitle class="d-flex justify-end pb-0">
+      <v-container fluid class="fill-height px-0">
+        <div class="info-stack info-stack-right" :style="{ height: `${heightOfCols}px` }">
+          <v-sheet
+            v-for="(item, index) in rightItems"
+            :key="index"
+            class="info-item"
+            color="transparent"
+          >
+            <v-card-subtitle class="d-flex justify-end pb-0 px-0 text-right">
               <p :class="rightInfosOption.class.title" v-html="item.title" />
             </v-card-subtitle>
 
-            <v-card-title class="d-flex justify-end">
+            <v-card-title class="d-flex justify-end px-0 text-right">
               <p
                 :class="rightInfosOption.class.content"
                 v-html="item.content"
               />
             </v-card-title>
           </v-sheet>
-        </v-row>
+        </div>
       </v-container>
     </v-col>
 
@@ -222,6 +224,73 @@ function reordering(idx: number): number {
 </script>
 
 <style scoped>
+.info-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-stack-right {
+  align-items: flex-end;
+}
+
+.info-item {
+  width: 100%;
+}
+
+.info-stack-right .info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.side-col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#top-introduce-col-1,
+#top-introduce-col-3 {
+  display: flex;
+}
+
+#top-introduce-col-1 {
+  justify-content: flex-start;
+}
+
+#top-introduce-col-3 {
+  justify-content: flex-end;
+}
+
+#top-introduce-col-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.center-image-shell {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.side-col :deep(p) {
+  margin: 0;
+}
+
+.side-col-right {
+  text-align: right;
+}
+
+.side-col-right :deep(.v-card-subtitle),
+.side-col-right :deep(.v-card-title),
+.side-col-right :deep(.v-card-actions) {
+  justify-content: flex-end;
+  text-align: right;
+  width: 100%;
+}
+
 #top-image {
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
@@ -232,5 +301,12 @@ function reordering(idx: number): number {
 #top-image:hover {
   -webkit-filter: grayscale(0);
   filter: none;
+}
+
+@media (max-width: 959px) {
+  .side-col {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 </style>

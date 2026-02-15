@@ -1,6 +1,13 @@
 export default defineNuxtConfig({
   ssr: false,
+  devtools: { enabled: false },
   css: ['@mdi/font/css/materialdesignicons.css'],
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   dir: {
     public: 'static',
   },
