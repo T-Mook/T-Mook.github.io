@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="8" sm="4">
+    <v-col cols="10" sm="4">
       <p
         class="text-center text-sm-h4 text-h4 font-weight-normal pb-0"
         v-html="items.title"

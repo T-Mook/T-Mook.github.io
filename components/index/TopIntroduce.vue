@@ -310,4 +310,32 @@ function reordering(idx: number): number {
     padding-right: 12px;
   }
 }
+
+@media (max-width: 600px) {
+  #top-introduce-row {
+    margin-top: 8px;
+  }
+
+  .center-image-shell {
+    max-width: 360px;
+    padding: 12px !important;
+  }
+
+  .side-col {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .info-stack {
+    height: auto !important;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .info-stack-right {
+    min-height: 360px;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
 </style>

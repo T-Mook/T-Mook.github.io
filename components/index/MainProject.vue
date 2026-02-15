@@ -1,6 +1,12 @@
 <template>
   <v-row justify="center" no-gutters>
-    <v-col v-for="(project, index) in projects" :key="index" cols="12" md="6">
+    <v-col
+      v-for="(project, index) in projects"
+      :key="index"
+      cols="12"
+      md="6"
+      class="project-col"
+    >
       <v-card flat tile>
         <v-img
           :src="project.src"
@@ -92,10 +98,14 @@ const projects: Array<{
   },
 ]
 
-const heightInXS = computed(() => ($vuetify.breakpoint.xsOnly ? 500 : 400))
+const heightInXS = computed(() => ($vuetify.breakpoint.xsOnly ? 620 : 400))
 </script>
 
 <style scoped>
+.project-col {
+  padding: 0;
+}
+
 .project-image :deep(.v-img__img) {
   z-index: 0;
 }
@@ -156,6 +166,15 @@ const heightInXS = computed(() => ($vuetify.breakpoint.xsOnly ? 500 : 400))
 }
 
 @media (max-width: 600px) {
+  .project-col {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .project-col + .project-col {
+    margin-top: 12px;
+  }
+
   .project-overlay {
     padding: 1.5rem 1rem;
   }

@@ -2,7 +2,7 @@
   <v-container id="top-container" fluid>
     <!-- ### Start : Top Title ### -->
     <v-row justify="center">
-      <v-col cols="8" sm="6">
+      <v-col cols="10" sm="6" md="5">
         <!-- Start : title -->
         <p
           :class="'text-sm-h4 text-h6 font-weight-bold text-center'"
@@ -26,7 +26,7 @@
 
     <!-- Start : Skills -->
     <!--
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="section-divider my-sm-15 my-15" />
     <sub-title
       :parent-items="objectOfParentItems.advantages"
       :class="classOfComponent + ' pt-md-10'"
@@ -35,7 +35,7 @@
     -->
 
     <!-- Start : Memory -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="section-divider my-sm-15 my-15" />
     <sub-title
       :parent-items="objectOfParentItems.memory"
       :class="classOfComponent + ' pt-md-10'"
@@ -43,7 +43,7 @@
     <memories :class="classOfComponent" />
 
     <!-- Start : Main Project -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="section-divider my-sm-15 my-15" />
     <sub-title
       :parent-items="objectOfParentItems.mainProject"
       :class="classOfComponent + ' pt-md-10'"
@@ -51,20 +51,12 @@
     <main-project :class="classOfComponent" />
 
     <!-- Start : Career Detail -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
+    <v-divider class="section-divider my-sm-15 my-15" />
     <sub-title
       :parent-items="objectOfParentItems.career"
       :class="classOfComponent + ' pt-md-10'"
     />
     <career :class="classOfComponent" />
-
-    <!-- Start : Photos -->
-    <v-divider class="mx-10 px-10 my-sm-15 my-15" />
-    <sub-title
-      :parent-items="objectOfParentItems.photos"
-      :class="classOfComponent + ' pt-md-10'"
-    />
-    <photos :class="classOfComponent" />
 
     <!-- Start : Main Youtube Video -->
     <v-divider class="mx-10 px-10 my-sm-15 my-15" />
@@ -73,6 +65,14 @@
       :class="classOfComponent + ' pt-md-10'"
     />
     <main-youtube-video :class="classOfComponent" />
+
+    <!-- Start : Photos -->
+    <v-divider class="section-divider my-sm-15 my-15" />
+    <sub-title
+      :parent-items="objectOfParentItems.photos"
+      :class="classOfComponent + ' pt-md-10'"
+    />
+    <photos :class="classOfComponent" />
   </v-container>
 </template>
 

@@ -1,9 +1,14 @@
 <template>
   <v-row>
-    <v-col v-for="(item, index) in items" :key="index" :cols="cols">
+    <v-col
+      v-for="(item, index) in orderedItems"
+      :key="item.title"
+      :cols="cols"
+      class="memory-column"
+    >
       <v-card flat tile>
         <v-card-title
-          :class="index !== 1 ? classOfTop : classOfTopXsOnlyJustifyEnd"
+          :class="isRightAlignedColumn(index) ? classOfTopXsOnlyJustifyEnd : classOfTop"
           v-html="item.title"
         />
       </v-card>
@@ -12,19 +17,14 @@
         :key="cindex"
         flat
         tile
+        class="memory-item"
       >
         <v-card-title
-          :class="
-            index !== 1 ? classOfText.title : classOfTextXsOnlyJustifyEnd.title
-          "
+          :class="isRightAlignedColumn(index) ? classOfTextXsOnlyJustifyEnd.title : classOfText.title"
           v-html="content.title"
         />
         <v-card-text
-          :class="
-            index !== 4
-              ? classOfText.description
-              : classOfTextXsOnlyJustifyEnd.description
-          "
+          :class="isRightAlignedColumn(index) ? classOfTextXsOnlyJustifyEnd.description : classOfText.description"
           v-html="content.description"
         />
       </v-card>
@@ -33,6 +33,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const { $vuetify } = useNuxtApp()
 
 const cols = $vuetify.breakpoint.xsOnly ? 12 : 4
@@ -118,4 +120,24 @@ const items: Array<{
     ],
   },
 ]
+
+const orderedItems = computed(() =>
+  $vuetify.breakpoint.xsOnly ? [items[1], items[0], items[2]] : items
+)
+
+function isRightAlignedColumn(index: number): boolean {
+  return $vuetify.breakpoint.xsOnly && index === 1
+}
 </script>
+
+<style scoped>
+@media (max-width: 600px) {
+  .memory-column + .memory-column {
+    margin-top: 8px;
+  }
+
+  .memory-item + .memory-item {
+    margin-top: 2px;
+  }
+}
+</style>

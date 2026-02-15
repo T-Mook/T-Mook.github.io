@@ -9,12 +9,12 @@
           v-for="(item, index) in items"
           :key="index"
           :color="item.color"
-          :side="item.left ? 'start' : 'end'"
+          :side="timelineSide(item.left)"
           :hide-dot="item.hideDot"
           small
         >
           <!-- Start : Time -->
-          <template #opposite>
+          <template v-if="!$vuetify.breakpoint.xsOnly" #opposite>
             <span>{{ item.time }}</span>
           </template>
 
@@ -492,18 +492,43 @@ const imageSizeOfsmAndDown = computed<number | undefined>(() =>
     ? $vuetify.breakpoint.width - 130
     : undefined
 )
+
+function timelineSide(left: boolean): 'start' | 'end' {
+  if ($vuetify.breakpoint.xsOnly) {
+    return 'end'
+  }
+
+  return left ? 'start' : 'end'
+}
 </script>
 
 <style scoped>
 .career-timeline {
   --career-side-width: 520px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .career-card {
   width: var(--career-side-width);
   max-width: calc(100vw - 64px);
+  min-width: 0;
   margin-inline: auto;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.career-card :deep(.v-card-title),
+.career-card :deep(.v-card-text),
+.career-card :deep(.v-card-actions),
+.career-card :deep(.v-btn__content) {
+  max-width: 100%;
+  min-width: 0;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  text-overflow: clip;
 }
 
 @media (max-width: 1264px) {
@@ -527,6 +552,32 @@ const imageSizeOfsmAndDown = computed<number | undefined>(() =>
   }
 }
 
+@media (max-width: 600px) {
+  .career-card {
+    width: 100%;
+    max-width: calc(100vw - 72px);
+  }
+
+  :deep(.career-timeline .v-timeline-item) {
+    padding-bottom: 20px;
+    max-width: 100%;
+  }
+
+  :deep(.career-timeline .v-timeline-item__divider) {
+    min-width: 36px;
+  }
+
+  :deep(.career-timeline .v-timeline-item__dot) {
+    box-shadow: 0 0 0 3px #ececec;
+  }
+
+  :deep(.career-timeline .v-timeline-item__body) {
+    margin-left: 8px;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 961px) {
   :deep(.career-timeline .v-timeline-item__body),
   :deep(.career-timeline .v-timeline-item__opposite) {
@@ -536,6 +587,7 @@ const imageSizeOfsmAndDown = computed<number | undefined>(() =>
 
   :deep(.career-timeline .v-timeline-item__body) {
     margin-inline: 0;
+    min-width: 0;
   }
 
   :deep(.career-timeline .v-timeline-item__opposite) {
@@ -544,9 +596,16 @@ const imageSizeOfsmAndDown = computed<number | undefined>(() =>
 }
 
 #career-card-image {
+  width: 100%;
+  max-width: 100%;
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
   filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+#career-card-image :deep(.v-img__img),
+#career-card-image :deep(.v-responsive__content) {
+  max-width: 100%;
 }
 
 /* Disable grayscale on hover */
