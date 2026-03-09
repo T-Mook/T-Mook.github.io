@@ -176,7 +176,7 @@ const leftItems: Array<{ title: string; content: string }> = [
       '<br />영업 전략 기획 및 데이터 분석' +
       '<br />Python, JavaScript, SQL',
   },
-  { title: 'contact', content: 'msp770@gmail.com' },
+  { title: 'contact', content: 'park.sungmook@get-a.io' },
 ]
 
 const rightItems: Array<{ title: string; content: string }> = [
